@@ -1,0 +1,149 @@
+Script started on Wed 07 Feb 2018 07:49:06 PM EST
+[?1034hbash-4.1$ date
+Wed Feb  7 19:49:13 EST 2018
+bash-4.1$ uname -a
+Linux Zeus-2 2.6.32-696.18.7.el6.centos.plus.x86_64 #1 SMP Tue Jan 9 14:11:50 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
+bash-4.1$ ls
+lab2		  lab2_dalemu2_207.c	       Makefile
+lab2_dalemu2_207  Lab2_typescript_dalemu2_207
+bash-4.1$ cat lab2_dalemu2_207.c
+/*Daniel Alemu 00884794
+ * CS 262, Lab Section 207
+ *  * Lab 2
+ *   */
+#include <stdio.h>
+#include <stdlib.h>
+
+// input function
+double userInput()
+{
+	double input;
+	char buffer[50];
+	fgets(buffer,50,stdin);
+	sscanf(buffer,"%lf",&input);
+return input;
+}
+
+// main function 
+int main()
+{
+
+	double AGI,x;
+	int taxRate;
+	double taxOwed;
+	double netIncome;
+
+	printf("******************Tax Calculator**************!\n");
+
+//AGI user input 	
+
+	printf("Enter Adjested Gross income = ");
+  	AGI=userInput();
+
+//tax rate input
+   
+	printf("Enter Tax Rate = ");
+	taxRate = (int)userInput();
+
+// check negative inputs
+ 	
+	if(AGI < 0 || taxRate < 0)
+	   {
+		printf("Program Exit.\nInvalid Input, Value must be positive number.\n"); 
+	   }
+	else
+	   {
+//tax  calculation 
+    	 	x = taxRate/100.0f;
+		taxOwed = x * AGI;
+   	 	netIncome = AGI - taxOwed;
+//output 
+    		printf("Your Adjested Gross income is $%.2f \n",AGI);
+   		printf("Tax Rate %d  \n",taxRate);
+    		printf("You Owed $%.2f \n",taxOwed);
+   		printf("Your Net Income Is $%.2f \n",netIncome); 
+	   } 
+   
+	return 0;
+
+}
+bash-4.1$ ls[K[Kcat Makefile
+# simple Makefile
+# Daniel Alemu  and 00884794>
+# # CS 262, Lab Section 207
+# # Lab 1
+CFLAGS=-g -Wall
+all: lab2_dalemu2_207.c
+	gcc $(CFLAGS) -o lab2_dalemu2_207 lab2_dalemu2_207.c
+clean:
+	rm lab2_dalemu2_207
+bash-4.1$ rm[Kbash-4.1$ rm lab2 lab2_dalemu2_207
+bash-4.1$ ls[Kbash-4.1$ ls
+lab2_dalemu2_207.c  Lab2_typescript_dalemu2_207  Makefile
+bash-4.1$ make
+gcc -g -Wall -o lab2_dalemu2_207 lab2_dalemu2_207.c
+bash-4.1$ ls
+lab2_dalemu2_207  lab2_dalemu2_207.c  Lab2_typescript_dalemu2_207  Makefile
+bash-4.1$ lab2_dalemu2_207.c
+bash: ./lab2_dalemu2_207.c: Permission denied
+bash-4.1$ lab2_dalemu2_207
+******************Tax Calculator**************!
+Enter Adjested Gross income = 2300.5
+Enter Tax Rate = 10
+Your Adjested Gross income is $2300.50 
+Tax Rate 10  
+You Owed $230.05 
+Your Net Income Is $2070.45 
+bash-4.1$ lab2_dalemu2_207
+******************Tax Calculator**************!
+Enter Adjested Gross income = 2300.5
+Enter Tax Rate = 0
+Your Adjested Gross income is $2300.50 
+Tax Rate 0  
+You Owed $0.00 
+Your Net Income Is $2300.50 
+bash-4.1$ lab2_dalemu2_207
+******************Tax Calculator**************!
+Enter Adjested Gross income = -47.23
+Enter Tax Rate = 15
+Program Exit.
+Invalid Input, Value must be positive number.
+bash-4.1$ 0
+bash: 0: command not found
+bash-4.1$ 0lab2_dalemu2_207
+******************Tax Calculator**************!
+Enter Adjested Gross income = 0
+Enter Tax Rate = 20
+Your Adjested Gross income is $0.00 
+Tax Rate 20  
+You Owed $0.00 
+Your Net Income Is $0.00 
+bash-4.1$ lab2_dalemu2_207
+******************Tax Calculator**************!
+Enter Adjested Gross income = 10
+Enter Tax Rate = 15
+Your Adjested Gross income is $10.00 
+Tax Rate 15  
+You Owed $1.50 
+Your Net Income Is $8.50 
+bash-4.1$ lab2_dalemu2_207
+******************Tax Calculator**************!
+Enter Adjested Gross income = 7894.63
+Enter Tax Rate = 17
+Your Adjested Gross income is $7894.63 
+Tax Rate 17  
+You Owed $1342.09 
+Your Net Income Is $6552.54 
+bash-4.1$ lab2_dalemu2_207
+******************Tax Calculator**************!
+Enter Adjested Gross income = 7894.63
+Enter Tax Rate = -17
+Program Exit.
+Invalid Input, Value must be positive number.
+bash-4.1$ make clean
+rm lab2_dalemu2_207
+bash-4.1$ ls
+lab2_dalemu2_207.c  Lab2_typescript_dalemu2_207  Makefile
+bash-4.1$ exit
+
+Script done on Wed 07 Feb 2018 07:57:22 PM EST
